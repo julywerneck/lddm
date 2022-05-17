@@ -24,8 +24,6 @@ class NovaTransacao extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     controller: precoController,
                   ),
-                  TextField(),
-                  TextField(),
                   ElevatedButton(onPressed: () {}, child: Text("Incluir")),
                 ],
               ))),
