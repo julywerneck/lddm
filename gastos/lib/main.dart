@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Model/Transacao.dart';
+import 'package:gastos/NovaTransacao.dart';
+import 'package:gastos/TransacoesWidget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: HomePage(),
+    );
   }
 }
 
@@ -22,20 +25,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Transacao> transacoes = [
-    Transacao(id: "A1", titulo: "Café", quantidade: 4.5, data: DateTime.now()),
-    Transacao(id: "A2", titulo: "Leite", quantidade: 4.2, data: DateTime.now())
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Gastos")),
+      appBar: AppBar(title: const Text("Gastos")),
       body: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [Card(child: Text("Conteudo")), Card(child: Text("Gastos"))],
+        children: [NovaTransacao(), TransacoesWidget()],
       )),
     );
   }

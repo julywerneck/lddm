@@ -9,5 +9,5 @@ class Transacao {
       {@required this.id,
       @required this.titulo,
       @required this.quantidade,
-      @required this.data}) {}
+      @required this.data});
 }
