@@ -39,7 +39,10 @@ class _ControllerState extends State<Controller> {
     return Column(
       //mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [NovaTransacao(addGasto), TransacoesWidget(transacoes)],
+      children: [
+        NovaTransacao(addGasto),
+        TransacoesWidget(transacoes, delGastos)
+      ],
     );
   }
 }

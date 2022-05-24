@@ -4,7 +4,8 @@ import 'package:intl/intl.dart';
 
 class TransacoesWidget extends StatelessWidget {
   List<Transacao> transacoes;
-  TransacoesWidget(this.transacoes);
+  Function delGastos;
+  TransacoesWidget(this.transacoes, this.delGastos);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class TransacoesWidget extends StatelessWidget {
                 children: transacoes.map((operacao) {
           return Card(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                     margin: const EdgeInsets.symmetric(
@@ -45,8 +47,12 @@ class TransacoesWidget extends StatelessWidget {
                     )
                   ],
                 ),
+                Spacer(),
                 IconButton(
-                    onPressed: () {},
+                    alignment: Alignment.centerRight,
+                    onPressed: () {
+                      delGastos(operacao.id);
+                    },
                     icon: const Icon(
                       Icons.delete,
                       color: Colors.red,
