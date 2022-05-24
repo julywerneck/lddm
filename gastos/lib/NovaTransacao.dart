@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class NovaTransacao extends StatelessWidget {
   var tituloController = TextEditingController();
   var precoController = TextEditingController();
-
+  Function addGasto;
+  NovaTransacao(this.addGasto);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,7 +13,7 @@ class NovaTransacao extends StatelessWidget {
       child: Card(
           elevation: 5,
           child: Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -24,7 +25,15 @@ class NovaTransacao extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     controller: precoController,
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text("Incluir")),
+                  Padding(
+                    child: ElevatedButton(
+                        onPressed: () {
+                          addGasto(tituloController.text,
+                              double.parse(precoController.text));
+                        },
+                        child: Text("Incluir")),
+                    padding: EdgeInsets.only(top: 15),
+                  )
                 ],
               ))),
     );

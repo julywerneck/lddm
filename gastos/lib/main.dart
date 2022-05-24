@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gastos/NovaTransacao.dart';
-import 'package:gastos/TransacoesWidget.dart';
+import 'package:gastos/Controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: HomePage(),
     );
   }
@@ -29,12 +28,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Gastos")),
-      body: Center(
-          child: Column(
-        //mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [NovaTransacao(), TransacoesWidget()],
-      )),
+      body: const Center(
+        child: Controller(),
+      ),
     );
   }
 }
