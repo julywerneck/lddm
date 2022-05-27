@@ -30,6 +30,20 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Lista de Contatos"),
         backgroundColor: Color.fromRGBO(18, 140, 126, 1),
+        actions: [
+          IconButton(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('This is a snackbar')));
+              },
+              icon: Icon(Icons.chat)),
+          IconButton(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('This is a snackbar')));
+              },
+              icon: Icon(Icons.keyboard_control_outlined))
+        ],
       ),
       body: const Center(
         child: Controller(),
